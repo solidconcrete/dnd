@@ -1,3 +1,20 @@
-{"name": "gogi", "class": "archer", "history": "god of war", "stats": {"STR": 5, "DEX": 6, "CON": 5, "INT": 6, "WIS": 5, "CHA": 6}, "health": 100, "inventory": ["stick"], "abilities": ["run"]}
-{"name": "caroline", "class": "mage", "history": "princess", "stats": {"STR": 6, "DEX": 7, "CON": 8, "INT": 8, "WIS": 7, "CHA": 4}, "health": 100, "inventory": ["dress"], "abilities": ["cast a spell"]}
-{"name": "huuuuuuh", "class": "rangerr", "history": "god of fire", "stats": {"STR": 7, "DEX": 7, "CON": 5, "INT": 9, "WIS": 7, "CHA": 9}, "health": 100, "inventory": ["fire stck"], "abilities": ["lit up", "get angry"]}
+[
+  {
+    "health": 100,
+    "stats": {},
+    "inventory": [],
+    "abilities": [],
+    "name": "roman",
+    "class": "elve",
+    "history": "whatever"
+  },
+  {
+    "health": 100,
+    "stats": {},
+    "inventory": [],
+    "abilities": [],
+    "name": "nastia",
+    "class": "goblin",
+    "history": "whatever"
+  }
+]
