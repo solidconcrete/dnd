@@ -40,13 +40,13 @@ import json
 #         return character
 
 class Character(object):
-    def __init__(self):
-        self.name = None
-        self.backstory = None
-        self.category = None  # the word 'class' is a reserved keyword, so the solution is to use the word 'category'
-        self.items = list()
-        self.abilities = list()
-        self.max_health = None
+    def __init__(self, name=None, backstory=None, category=None, items=None, abilities=None, max_health=None):
+        self.name = name
+        self.backstory = backstory
+        self.category = category  # the word 'class' is a reserved keyword, so the solution is to use the word 'category'
+        self.items = items
+        self.abilities = abilities
+        self.max_health = max_health
 
     def set_name(self, name):
         self.name = name

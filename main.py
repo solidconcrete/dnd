@@ -105,15 +105,33 @@ if __name__ == "__main__":
         if save_changes == True:
             character_manager.save_character(character)
 
+    def start_character_deletion(character_index):
+        delete = ask_confirmation("Are you sure that you want to delete this character?")
+        if delete == True:
+            character_manager.delete_character(character_index)
 
     def start_character_edit():
-        user_input = input("\nChoose character to edit by typing their number ")
-        print(character_manager.load_character_by_index(int(user_input)))
-        print(print_available_character_edit_commands())
+        character_index = input("\nChoose character to edit by typing their number ")
+        character_index = int(character_index)
+
+        print(character_manager.load_character_by_index(int(character_index)).__dict__) # Since 'load_character_by_index' returns character as object, in order to display it in human-readable manner, we call __dict__
+        action = input(print_available_character_edit_commands())
+
+        match action:
+            case "0":
+                start_character_deletion(character_index)
+            case "1":
+                start_character_name_edit(character_index)
+            case _:
+                print("Unknown command. Type 'h' to see the list of available commands.")
+
 
     def start_character_name_edit(character_index):
         new_name = input("Enter new character's name: ")
-        character_manager.change_character_name(character_index, new_name)
+        character_manager.change_character_name(int(character_index), new_name)
+
+    def start_character_class_edit(character_index):
+        # TODO
 
     print_available_commands()
 
@@ -125,7 +143,7 @@ if __name__ == "__main__":
             case "n":
                 start_character_creation()
             case "l":
-                characters_from_storage = character_manager.load_characters_from_file()
+                characters_from_storage = character_manager.load_all_characters_from_file()
                 for i, character in enumerate(characters_from_storage):
                     print(f"{i}. {character}")
             case "e":

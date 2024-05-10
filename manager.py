@@ -16,10 +16,10 @@ class CharacterManager:
         return cls._instance
 
     def load_character_by_index(self, index):
-        characters = self.load_characters_from_file()
-        return characters[index]
+        characters = self.load_all_characters_from_file()
+        return Character(**characters[index])
 
-    def load_characters_from_file(self):
+    def load_all_characters_from_file(self):
         try:
             with open(self.character_storage_file_path, 'r') as file:
                 characters = json.load(file)
@@ -27,9 +27,21 @@ class CharacterManager:
         except FileNotFoundError:
             return []
 
-    def change_character_name(self, character_name):
-        self.load_character_by_index(character_name)
+    def change_character_name(self, character_index, new_character_name):
+        character = self.load_character_by_index(character_index)
+        self.delete_character(character_index)
 
+        character.set_name(new_character_name)
+
+        character.set_name(new_character_name)
+        self.save_character(character)
+
+    def update_character(self, character_index, updated_character):
+        all_characters = self.load_all_characters_from_file()
+
+        all_characters.pop(character_index)
+
+        self.save_character(updated_character)
         # except FileNotFoundError:
         #     print("Character file not found. Starting with an empty list.")
         # except json.JSONDecodeError:
@@ -48,7 +60,7 @@ class CharacterManager:
         return obj.__dict__
 
     def save_character(self, character):
-        character_list = self.load_characters_from_file()
+        character_list = self.load_all_characters_from_file()
         character_list.append(character) # append means add. In this case we load the characters that we already have and add a new character to the list
         with open(self.character_storage_file_path, 'w') as f:
             # 'default=lambda character: character.__dict__': while performing dump, we take every item inside
@@ -59,8 +71,11 @@ class CharacterManager:
         # with open(self.character_storage_file_path, 'w') as f:
         #     json.dumps(character)
 
-
-
+    def delete_character(self, character_index):
+        character_list = self.load_all_characters_from_file()
+        character_list.pop(character_index)
+        with open(self.character_storage_file_path, 'w') as f:
+            json.dump(character_list, f, default=lambda character: character.__dict__, indent=2)
 
     # def edit_character(self, character_name):
     #     print(f"Attempting to edit character: {character_name}")

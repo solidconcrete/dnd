@@ -67,7 +67,87 @@
     "max_health": 300
   },
   {
-    "name": "o",
+    "name": "w",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
+  },
+  {
+    "name": "w",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
+  },
+  {
+    "name": "w",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
+  },
+  {
+    "name": "w",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
+  },
+  {
+    "name": "popa",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
+  },
+  {
+    "name": "pidoras",
     "backstory": "a",
     "category": "Warrior",
     "items": [
@@ -82,5 +162,21 @@
       "Permanent hangover"
     ],
     "max_health": 300
+  },
+  {
+    "name": "homo",
+    "backstory": "erectus",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
+    ],
+    "max_health": 100
   }
 ]
