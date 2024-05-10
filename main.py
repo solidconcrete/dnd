@@ -3,7 +3,7 @@ from manager import CharacterManager
 import json
 import sys
 
- # Validate user choices and return it as a string if it's correct
+# Validate user choices and return it as a string if it's correct
 def get_string_choice(prompt, **kwoptions):
     while True:
         try:
@@ -24,10 +24,9 @@ def get_string_choice(prompt, **kwoptions):
             print("\n\n")
             raise TypeError
 
-
 if __name__ == "__main__":
-
-    char_manager = CharacterManager() 
+    char_manager = CharacterManager()
+    char_manager.load_characters_from_file()  # Load characters at the start
 
     prompt = "Welcome to DND manager, what would you like to do?"
     input_options = {
@@ -42,7 +41,6 @@ if __name__ == "__main__":
         choice = get_string_choice(prompt, **input_options)
         match choice:
             case "c":
-                
                 name = input("Enter character name: ")
                 character_class = input("Enter character class: ")
                 history = input("Enter character history: ")
@@ -54,15 +52,17 @@ if __name__ == "__main__":
                 char_manager.add_character(char.character)
                 print("Character created.\n")
                 
-                #TODO return to choice prompt
             case "l":
                 if len(char_manager.characters):
                     for u in char_manager.characters:
                         print(u['name'])
                     print('\n\n')
+                else:
+                    print("No characters created yet.\n")
+                    
             case "e":
                 character_name = input("Enter the name of the character to edit: ")
-                char_manager.edit_character()
+                char_manager.edit_character(character_name)
             
             case "s":
                 char_manager.save_characters_to_file()
@@ -74,6 +74,3 @@ if __name__ == "__main__":
             
             case _:
                 print("Invalid choice. Please select a valid option.\n")
-                break 
-   
-

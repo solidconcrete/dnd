@@ -4,17 +4,57 @@
     "stats": {},
     "inventory": [],
     "abilities": [],
-    "name": "roman",
-    "class": "elve",
-    "history": "whatever"
+    "name": "ffffff",
+    "class": "ffffffff",
+    "history": "ffffff"
+  },
+  {
+    "health": 100,
+    "stats": {
+      "STR": 5
+    },
+    "inventory": [],
+    "abilities": [
+      "run"
+    ],
+    "name": "mania",
+    "class": "archer",
+    "history": "only "
   },
   {
     "health": 100,
     "stats": {},
     "inventory": [],
     "abilities": [],
-    "name": "nastia",
-    "class": "goblin",
-    "history": "whatever"
+    "name": "dodik",
+    "class": "begunok",
+    "history": "zloj"
+  },
+  {
+    "health": 100,
+    "stats": {
+      "DEX": 30
+    },
+    "inventory": [],
+    "abilities": [],
+    "name": "richard",
+    "class": "archer",
+    "history": "keks"
+  },
+  {
+    "health": 100,
+    "stats": {
+      "STR": 30,
+      "DEX": -1,
+      "INT": 30,
+      "WIS": 300
+    },
+    "inventory": [],
+    "abilities": [
+      "be good"
+    ],
+    "name": "God",
+    "class": "god",
+    "history": "woooow"
   }
 ]
