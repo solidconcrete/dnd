@@ -2,15 +2,26 @@ import json
 
 class CharacterManager:
     _instance = None
-    
+
     def __init__(self):
-        self.char_file = "./characters.json"
-    
+        self.characters = None
+        self.character_storage_file_path = './character_storage.json'
+
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(CharacterManager, cls).__new__(cls)
-            cls.characters = []
+            # load_characters_from_file(th)
         return cls._instance
+
+    def load_characters_from_file(self):
+        try:
+            with open(self.character_storage_file_path, 'r') as file:
+                self.characters = json.load(file)
+                print(f"Loaded characters: {self.characters}")
+        except FileNotFoundError:
+            print("Character file not found. Starting with an empty list.")
+        except json.JSONDecodeError:
+            print("Error decoding JSON. Starting with an empty list.")
 
     def add_character(self, character):
         self.characters.append(character)
@@ -26,16 +37,6 @@ class CharacterManager:
             print("Saved.")
         else:
             print('No characters created!')
-        
-    def load_characters_from_file(self):
-        try:
-            with open(self.char_file, 'r') as file:
-                self.characters = json.load(file)
-                print(f"Loaded characters: {self.characters}")
-        except FileNotFoundError:
-            print("Character file not found. Starting with an empty list.")
-        except json.JSONDecodeError:
-            print("Error decoding JSON. Starting with an empty list.")
     
     def edit_character(self, character_name):
         print(f"Attempting to edit character: {character_name}")
