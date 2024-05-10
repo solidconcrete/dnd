@@ -12,6 +12,7 @@
 #             value = int(input("Enter the new value for {}: ".format(stat_name)))
 #         return func(self, stat_name, value)
 #     return wrapper
+import json
 
 
 # done using https://www.tutorialspoint.com/python_design_patterns/python_design_patterns_builder.htm
@@ -38,7 +39,7 @@
 #
 #         return character
 
-class Character:
+class Character(object):
     def __init__(self):
         self.name = None
         self.backstory = None
@@ -87,10 +88,10 @@ class WarriorBuilder(CharacterBuilder):
         return "Warrior"
 
     def get_items(self):
-        return {"Axe", "Chainmail", "Helmet", "Testosterone"}
+        return ["Axe", "Chainmail", "Helmet", "Testosterone"]
 
     def get_abilities(self):
-        return {"Berserk", "Impenetrable", "Permanent hangover"}
+        return ["Berserk", "Impenetrable", "Permanent hangover"]
 
     def get_max_health(self):
         return 300
@@ -102,10 +103,10 @@ class WizardBuilder(CharacterBuilder):
         return "Wizard"
 
     def get_items(self):
-        return {"Magic wand", "Wizard's hat", "Estrogen"}
+        return ["Magic wand", "Wizard's hat", "Estrogen"]
 
     def get_abilities(self):
-        return {"Turn water into wine", "Cry", "Die for our sins"}
+        return ["Turn water into wine", "Cry", "Die for our sins"]
 
     def get_max_health(self):
         return 100

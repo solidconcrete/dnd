@@ -1,3 +1,5 @@
+import os
+
 from character import Character, WarriorBuilder, WizardBuilder
 from manager import CharacterManager
 
@@ -25,8 +27,7 @@ if __name__ == "__main__":
 
             return character
 
-
-    characterManager = CharacterManager()
+    character_manager = CharacterManager()
     warrior_builder = WarriorBuilder()
     wizard_builder = WizardBuilder()
     director = Director()
@@ -42,10 +43,25 @@ if __name__ == "__main__":
         "q": "Quit"
     }
 
+    character_edit_options = {
+        "0": "Delete character",
+        "1": "Edit name",
+        "2": "Edit backstory",
+        "3": "Edit class",
+        "4": "Edit items",
+        "5": "Edit abilities",
+        "6": "Edit max health",
+    }
+
     def print_available_commands():
         print("Choose any of these commands:")
         for command in input_options.keys():
             print(f"{command} - {input_options[command]}")
+
+    def print_available_character_edit_commands():
+        print("Choose any of these commands:")
+        for command in character_edit_options.keys():
+            print(f"{command} - {character_edit_options[command]}")
 
     def get_user_input():
         return input("\nPlease enter a command: ")
@@ -57,6 +73,14 @@ if __name__ == "__main__":
     def start_wizard_creation():
         director.set_builder(wizard_builder)
         return director.getCharacter()
+
+    def ask_confirmation(prompt):
+        result = input(prompt)
+        if result == "Y" or result == "y":
+            return True                         # if user replied Y, then we exit from this function by using 'return'
+        if result == "N" or result == "n":
+            return False                        # if user replied N, then we exit from this function by using 'return'
+        ask_confirmation(prompt)                # if user's answer was neither Y or N (maybe he made a typo), then repeat this function
 
     def start_character_creation():
         user_input = input("\nChoose the class of your character: Warrior (1) or Wizard(2): ")
@@ -71,8 +95,25 @@ if __name__ == "__main__":
 
         character.set_name(input("Enter character's name: "))
         character.set_back_story(input("Enter character's backstory: "))
+
         print("\nCharacter has been created. Here are their stats: ")
         print(character.display_info())
+
+        save_changes = ask_confirmation("Apply changes (Y/N)? ")
+
+        # if user answered Y, then we save the character, in any other case the function just ends without saving
+        if save_changes == True:
+            character_manager.save_character(character)
+
+
+    def start_character_edit():
+        user_input = input("\nChoose character to edit by typing their number ")
+        print(character_manager.load_character_by_index(int(user_input)))
+        print(print_available_character_edit_commands())
+
+    def start_character_name_edit(character_index):
+        new_name = input("Enter new character's name: ")
+        character_manager.change_character_name(character_index, new_name)
 
     print_available_commands()
 
@@ -83,6 +124,12 @@ if __name__ == "__main__":
                 print_available_commands()
             case "n":
                 start_character_creation()
+            case "l":
+                characters_from_storage = character_manager.load_characters_from_file()
+                for i, character in enumerate(characters_from_storage):
+                    print(f"{i}. {character}")
+            case "e":
+                start_character_edit()
             case _:
                 print("Unknown command. Type 'h' to see the list of available commands.")
     # while True:

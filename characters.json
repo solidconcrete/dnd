@@ -1,60 +1,86 @@
 [
   {
-    "health": 100,
-    "stats": {},
-    "inventory": [],
-    "abilities": [],
-    "name": "ffffff",
-    "class": "ffffffff",
-    "history": "ffffff"
-  },
-  {
-    "health": 100,
-    "stats": {
-      "STR": 5
-    },
-    "inventory": [],
-    "abilities": [
-      "run"
+    "name": "w",
+    "backstory": "w",
+    "category": "Wizard",
+    "items": [
+      "Magic wand",
+      "Wizard's hat",
+      "Estrogen"
     ],
-    "name": "mania",
-    "class": "archer",
-    "history": "only "
-  },
-  {
-    "health": 100,
-    "stats": {},
-    "inventory": [],
-    "abilities": [],
-    "name": "dodik",
-    "class": "begunok",
-    "history": "zloj"
-  },
-  {
-    "health": 100,
-    "stats": {
-      "DEX": 30
-    },
-    "inventory": [],
-    "abilities": [],
-    "name": "richard",
-    "class": "archer",
-    "history": "keks"
-  },
-  {
-    "health": 100,
-    "stats": {
-      "STR": 30,
-      "DEX": -1,
-      "INT": 30,
-      "WIS": 300
-    },
-    "inventory": [],
     "abilities": [
-      "be good"
+      "Turn water into wine",
+      "Cry",
+      "Die for our sins"
     ],
-    "name": "God",
-    "class": "god",
-    "history": "woooow"
+    "max_health": 100
+  },
+  {
+    "name": "a",
+    "backstory": "a",
+    "category": "Warrior",
+    "items": [
+      "Axe",
+      "Chainmail",
+      "Helmet",
+      "Testosterone"
+    ],
+    "abilities": [
+      "Berserk",
+      "Impenetrable",
+      "Permanent hangover"
+    ],
+    "max_health": 300
+  },
+  {
+    "name": "1",
+    "backstory": "1",
+    "category": "Warrior",
+    "items": [
+      "Axe",
+      "Chainmail",
+      "Helmet",
+      "Testosterone"
+    ],
+    "abilities": [
+      "Berserk",
+      "Impenetrable",
+      "Permanent hangover"
+    ],
+    "max_health": 300
+  },
+  {
+    "name": "y",
+    "backstory": "y",
+    "category": "Warrior",
+    "items": [
+      "Axe",
+      "Chainmail",
+      "Helmet",
+      "Testosterone"
+    ],
+    "abilities": [
+      "Berserk",
+      "Impenetrable",
+      "Permanent hangover"
+    ],
+    "max_health": 300
+  },
+  {
+    "name": "o",
+    "backstory": "a",
+    "category": "Warrior",
+    "items": [
+      "Axe",
+      "Chainmail",
+      "Helmet",
+      "Testosterone"
+    ],
+    "abilities": [
+      "Berserk",
+      "Impenetrable",
+      "Permanent hangover"
+    ],
+    "max_health": 300
   }
 ]
