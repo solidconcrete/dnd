@@ -142,10 +142,10 @@ if __name__ == "__main__":
         for i, stat in enumerate(character.stats):
             print(f"{i}. {stat}: {character.stats[stat]}")
 
-        stat_to_edit = input("\nChoose a stat to edit by typing its number: ")
+        stat_to_edit_index = input("\nChoose a stat to edit by typing its number: ")
 
         new_stat_value = int(input("Enter new stat value: "))
-        stat_name = get_stat_name_by_index(character, stat_to_edit)
+        stat_name = get_stat_name_by_index(character, stat_to_edit_index)
 
         if not validate_stat(new_stat_value):
             print("\nInvalid stat value. Value must be between 1 and 20.")
