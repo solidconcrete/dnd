@@ -6,7 +6,6 @@ class CharacterManager:
     _instance = None
 
     def __init__(self):
-        # self.characters = None
         self.character_storage_file_path = 'characters.json'
 
     def __new__(cls):
@@ -36,10 +35,6 @@ class CharacterManager:
     def update_character(self, character_index, updated_character):
         self.delete_character(character_index)
         self.save_character(updated_character)
-        # except FileNotFoundError:
-        #     print("Character file not found. Starting with an empty list.")
-        # except json.JSONDecodeError:
-        #     print("Error decoding JSON. Starting with an empty list.")
 
     def save_characters_to_file(self, characters):
         if len(characters):
