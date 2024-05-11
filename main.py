@@ -37,10 +37,8 @@ if __name__ == "__main__":
 
     print("Welcome to DND character manager, what would you like to do?")
     input_options = {
-        "c": "Create character",
         "l": "List all characters",
         "n": "Create new character",
-        "s": "Select character",
         "e": "Edit character",
         "h": "Help (display available commands)",
         "q": "Quit"
@@ -103,8 +101,7 @@ if __name__ == "__main__":
         print(character.display_info())
 
         save_changes = ask_confirmation("Apply changes (Y/N)? ")
-
-        # if user answered Y, then we save the character, in any other case the function just ends without saving
+        # if function ask_confirmation returned True, then we save the character, otherwise the function just ends without saving
         if save_changes == True:
             character_manager.save_character(character)
 
@@ -129,9 +126,9 @@ if __name__ == "__main__":
 
     def start_character_edit():
         character_index = input("\nChoose character to edit by typing their number ")
-        character_index = int(character_index)
+        character_index = int(character_index) # convert user's input from text to number format using int()
 
-        print(character_manager.load_character_by_index(int(character_index)).__dict__) # Since 'load_character_by_index' returns character as object, in order to display it in human-readable manner, we call __dict__
+        print(character_manager.load_character_by_index(int(character_index))) # Since 'load_character_by_index' returns character as object, in order to display it in human-readable manner, we call __dict__, which outputs its parameters (name, class, stats, etc.)
         action = input(print_available_character_edit_commands())
 
         match action:
@@ -139,8 +136,16 @@ if __name__ == "__main__":
                 start_character_deletion(character_index)
             case "1":
                 start_character_name_edit(character_index)
+            case "2":
+                pass # TODO: the same as name edit
+            case "3":
+                pass  # TODO: the same as name edit
             case "4":
                 start_items_edit(character_index)
+            case "5":
+                pass # TODO
+            case "6":
+                pass  # TODO: the same as name edit
             case _:
                 print("Unknown command. Type 'h' to see the list of available commands.")
 
@@ -167,6 +172,10 @@ if __name__ == "__main__":
                     print(f"{i}. {character}")
             case "e":
                 start_character_edit()
+            case "q":
+                print("\nBye :)\n")
+                quit()
+                break
             case _:
                 print("Unknown command. Type 'h' to see the list of available commands.")
     # while True:

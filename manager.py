@@ -28,13 +28,10 @@ class CharacterManager:
             return []
 
     def change_character_name(self, character_index, new_character_name):
-        character = self.load_character_by_index(character_index)
-        self.delete_character(character_index)
+        character_for_update = self.load_character_by_index(character_index)
+        character_for_update.set_name(new_character_name)
 
-        character.set_name(new_character_name)
-
-        character.set_name(new_character_name)
-        self.save_character(character)
+        self.update_character(character_index, character_for_update)
 
     def update_character(self, character_index, updated_character):
         self.delete_character(character_index)
