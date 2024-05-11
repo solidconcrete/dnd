@@ -55,8 +55,8 @@ class Character(object):
     def set_back_story(self, back_story):
         self.backstory = back_story
 
-    def get_items(self):
-        return self.items
+    def get_stats(self):
+        return self.stats
 
     def display_info(self):
         print("Name: ", self.name)
@@ -80,7 +80,7 @@ class CharacterBuilder:
     def get_items(self):
         pass
 
-    def gett_abilities(self):
+    def get_abilities(self):
         pass
 
     def get_max_health(self):

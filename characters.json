@@ -72,22 +72,6 @@
     "stats": null
   },
   {
-    "name": "w",
-    "backstory": "w",
-    "category": "Wizard",
-    "items": [
-      "Wizard's hat",
-      "Estrogen"
-    ],
-    "abilities": [
-      "Turn water into wine",
-      "Cry",
-      "Die for our sins"
-    ],
-    "max_health": 100,
-    "stats": null
-  },
-  {
     "name": "popa",
     "backstory": "w",
     "category": "Wizard",
@@ -133,5 +117,28 @@
     ],
     "max_health": 100,
     "stats": null
+  },
+  {
+    "name": "yoba",
+    "backstory": "gop",
+    "category": "Warrior",
+    "items": [
+      "Axe",
+      "Chainmail",
+      "Helmet",
+      "Estrogen"
+    ],
+    "abilities": [
+      "Berserk",
+      "Impenetrable",
+      "Permanent hangover"
+    ],
+    "max_health": 300,
+    "stats": {
+      "STR": 50,
+      "DEX": 6,
+      "INT": 5,
+      "WIS": 300
+    }
   }
 ]

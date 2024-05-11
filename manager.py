@@ -26,9 +26,9 @@ class CharacterManager:
         except FileNotFoundError:
             return []
 
-    def change_character_name(self, character_index, new_character_name):
+    def change_character_name(self, character_index, new_name):
         character_for_update = self.load_character_by_index(character_index)
-        character_for_update.set_name(new_character_name)
+        character_for_update.set_name(new_name)
 
         self.update_character(character_index, character_for_update)
 
@@ -56,9 +56,6 @@ class CharacterManager:
             # character_list, interpret it as 'character' and then take its __dict__ to dump into json
             # __dict__ basically returns all attributes of the object (for character class it's name, class, inventory, etc.)
             json.dump(character_list, f, default=lambda character: character.__dict__, indent=2)
-            # json.dump(character.__dict__, f, indent=2)
-        # with open(self.character_storage_file_path, 'w') as f:
-        #     json.dumps(character)
 
     def delete_character(self, character_index):
         character_list = self.load_all_characters_from_file()
@@ -69,6 +66,17 @@ class CharacterManager:
     def delete_character_item(self, character_index, item_index):
         character = self.load_character_by_index(character_index)
         character.get_items().pop(item_index)
+        self.update_character(character_index, character)
+
+    def add_new_character_item(self, character_index, new_item_name):
+        character = self.load_character_by_index(character_index)
+        character.get_items().append(new_item_name)
+        self.update_character(character_index, character)
+
+    def edit_character_stat(self, character_index, stat_name, new_stat_value):
+        character = self.load_character_by_index(character_index)
+        character.get_stats()[stat_name] = new_stat_value
+
         self.update_character(character_index, character)
 
 

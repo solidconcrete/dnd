@@ -10,7 +10,7 @@ if __name__ == "__main__":
         def set_builder(self, builder):
             self.builder = builder
 
-        def getCharacter(self):
+        def build_character(self):
             character = Character()
 
             category = self.builder.get_category()
@@ -51,7 +51,8 @@ if __name__ == "__main__":
         "3": "Edit class",
         "4": "Edit items",
         "5": "Edit abilities",
-        "6": "Edit max health",
+        "6": "Edit stats",
+        "7": "Edit max health",
     }
 
     def print_available_commands():
@@ -69,11 +70,11 @@ if __name__ == "__main__":
 
     def start_warrior_creation():
         director.set_builder(warrior_builder)
-        return director.getCharacter()
+        return director.build_character()
 
     def start_wizard_creation():
         director.set_builder(wizard_builder)
-        return director.getCharacter()
+        return director.build_character()
 
     def ask_confirmation(prompt):
         result = input(prompt)
@@ -123,15 +124,45 @@ if __name__ == "__main__":
             case "0":
                 item_index = input("Choose item to delete by typing its number")
                 character_manager.delete_character_item(character_index, int(item_index))
+            case "1":
+                new_item_name = input("Which item would you like to add? Type new Item name")
+                character_manager.add_new_character_item(character_index, new_item_name)
+
+    def validate_stat(stat_value):
+        return 0 < int(stat_value) <= 20
+
+    def get_stat_name_by_index(character, stat_index):
+        for i, stat in enumerate(character.stats):
+            if i == int(stat_index):
+                return stat
+
+    def start_stats_edit(character_index):
+        character = character_manager.load_character_by_index(character_index)
+        print("Selected character has following stats: ")
+        for i, stat in enumerate(character.stats):
+            print(f"{i}. {stat}: {character.stats[stat]}")
+
+        stat_to_edit = input("\nChoose a stat to edit by typing its number: ")
+
+        new_stat_value = int(input("Enter new stat value: "))
+        stat_name = get_stat_name_by_index(character, stat_to_edit)
+
+        if not validate_stat(new_stat_value):
+            print("\nInvalid stat value. Value must be between 1 and 20.")
+            start_stats_edit(character_index)
+
+        character_manager.edit_character_stat(character_index, stat_name, new_stat_value)
 
     def start_character_edit():
         character_index = input("\nChoose character to edit by typing their number ")
         character_index = int(character_index) # convert user's input from text to number format using int()
 
-        print(character_manager.load_character_by_index(int(character_index))) # Since 'load_character_by_index' returns character as object, in order to display it in human-readable manner, we call __dict__, which outputs its parameters (name, class, stats, etc.)
-        action = input(print_available_character_edit_commands())
+        # Since 'load_character_by_index' returns character as object, in order to display it in human-readable manner,
+        # we call __dict__, which outputs its parameters (name, class, stats, etc.)
+        print(character_manager.load_character_by_index(character_index).__dict__)
+        user_action = input(print_available_character_edit_commands())
 
-        match action:
+        match user_action:
             case "0":
                 start_character_deletion(character_index)
             case "1":
@@ -145,14 +176,14 @@ if __name__ == "__main__":
             case "5":
                 pass # TODO
             case "6":
-                pass  # TODO: the same as name edit
+                start_stats_edit(character_index)
             case _:
                 print("Unknown command. Type 'h' to see the list of available commands.")
 
 
     def start_character_name_edit(character_index):
         new_name = input("Enter new character's name: ")
-        character_manager.change_character_name(int(character_index), new_name)
+        character_manager.change_character_name(character_index, new_name)
 
     def start_character_class_edit(character_index):
         pass # TODO
