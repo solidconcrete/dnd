@@ -1,40 +1,7 @@
 [
   {
-    "name": "pidoras",
-    "backstory": "a",
-    "category": "Warrior",
-    "items": [
-      "Axe",
-      "Chainmail",
-      "Helmet",
-      "Testosterone"
-    ],
-    "abilities": [
-      "Berserk",
-      "Impenetrable",
-      "Permanent hangover"
-    ],
-    "max_health": 300
-  },
-  {
-    "name": "uuu",
-    "backstory": "ye",
-    "category": "Wizard",
-    "items": [
-      "Wizard's hat",
-      "Estrogen"
-    ],
-    "abilities": [
-      "Turn water into wine",
-      "Cry",
-      "Die for our sins"
-    ],
-    "max_health": 100,
-    "stats": null
-  },
-  {
-    "name": "ruckus",
-    "backstory": "poo",
+    "name": "gintarius",
+    "backstory": "software developer",
     "category": "Warrior",
     "items": [
       "Axe",
@@ -56,10 +23,11 @@
     }
   },
   {
-    "name": "w",
-    "backstory": "w",
+    "name": "mantelis",
+    "backstory": "brakonjerius",
     "category": "Wizard",
     "items": [
+      "Magic wand",
       "Wizard's hat",
       "Estrogen"
     ],
@@ -69,76 +37,11 @@
       "Die for our sins"
     ],
     "max_health": 100,
-    "stats": null
-  },
-  {
-    "name": "popa",
-    "backstory": "w",
-    "category": "Wizard",
-    "items": [
-      "Magic wand",
-      "Estrogen"
-    ],
-    "abilities": [
-      "Turn water into wine",
-      "Cry",
-      "Die for our sins"
-    ],
-    "max_health": 100,
-    "stats": null
-  },
-  {
-    "name": "homo",
-    "backstory": "erectus",
-    "category": "Wizard",
-    "items": [
-      "Estrogen"
-    ],
-    "abilities": [
-      "Turn water into wine",
-      "Cry",
-      "Die for our sins"
-    ],
-    "max_health": 100,
-    "stats": null
-  },
-  {
-    "name": "tst",
-    "backstory": "w",
-    "category": "Wizard",
-    "items": [
-      "Magic wand",
-      "Estrogen"
-    ],
-    "abilities": [
-      "Turn water into wine",
-      "Cry",
-      "Die for our sins"
-    ],
-    "max_health": 100,
-    "stats": null
-  },
-  {
-    "name": "yoba",
-    "backstory": "gop",
-    "category": "Warrior",
-    "items": [
-      "Axe",
-      "Chainmail",
-      "Helmet",
-      "Estrogen"
-    ],
-    "abilities": [
-      "Berserk",
-      "Impenetrable",
-      "Permanent hangover"
-    ],
-    "max_health": 300,
     "stats": {
-      "STR": 50,
-      "DEX": 6,
-      "INT": 5,
-      "WIS": 300
+      "STR": 1,
+      "DEX": -1,
+      "INT": 1,
+      "WIS": 1
     }
   }
 ]

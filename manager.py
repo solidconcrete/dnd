@@ -2,6 +2,32 @@ import json
 from character import Character
 
 
+class Director:
+    builder = None
+
+    def set_builder(self, builder):
+        self.builder = builder
+
+    def build_character(self):
+        character = Character()
+
+        category = self.builder.get_category()
+        character.category = category
+
+        items = self.builder.get_items()
+        character.items = items
+
+        abilities = self.builder.get_abilities()
+        character.abilities = abilities
+
+        max_health = self.builder.get_max_health()
+        character.max_health = max_health
+
+        stats = self.builder.get_stats()
+        character.stats = stats
+
+        return character
+
 class CharacterManager:
     _instance = None
 
@@ -11,7 +37,6 @@ class CharacterManager:
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(CharacterManager, cls).__new__(cls)
-            # load_characters_from_file(th)
         return cls._instance
 
     def load_character_by_index(self, index):
@@ -23,7 +48,7 @@ class CharacterManager:
             with open(self.character_storage_file_path, 'r') as file:
                 characters = json.load(file)
                 return characters
-        except FileNotFoundError:
+        except:
             return []
 
     def change_character_name(self, character_index, new_name):

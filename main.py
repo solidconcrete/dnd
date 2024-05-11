@@ -1,35 +1,9 @@
 import os
 
 from character import Character, WarriorBuilder, WizardBuilder
-from manager import CharacterManager
+from manager import CharacterManager, Director
 
 if __name__ == "__main__":
-    class Director:
-        builder = None
-
-        def set_builder(self, builder):
-            self.builder = builder
-
-        def build_character(self):
-            character = Character()
-
-            category = self.builder.get_category()
-            character.category = category
-
-            items = self.builder.get_items()
-            character.items = items
-
-            abilities = self.builder.get_abilities()
-            character.abilities = abilities
-
-            max_health = self.builder.get_max_health()
-            character.max_health = max_health
-
-            stats = self.builder.get_stats()
-            character.stats = stats
-
-            return character
-
     character_manager = CharacterManager()
     warrior_builder = WarriorBuilder()
     wizard_builder = WizardBuilder()
@@ -199,6 +173,9 @@ if __name__ == "__main__":
                 start_character_creation()
             case "l":
                 characters_from_storage = character_manager.load_all_characters_from_file()
+                if characters_from_storage == []:
+                    print("There are no characters saved.")
+
                 for i, character in enumerate(characters_from_storage):
                     print(f"{i}. {character}")
             case "e":
