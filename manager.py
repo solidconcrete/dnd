@@ -37,10 +37,7 @@ class CharacterManager:
         self.save_character(character)
 
     def update_character(self, character_index, updated_character):
-        all_characters = self.load_all_characters_from_file()
-
-        all_characters.pop(character_index)
-
+        self.delete_character(character_index)
         self.save_character(updated_character)
         # except FileNotFoundError:
         #     print("Character file not found. Starting with an empty list.")
@@ -76,6 +73,12 @@ class CharacterManager:
         character_list.pop(character_index)
         with open(self.character_storage_file_path, 'w') as f:
             json.dump(character_list, f, default=lambda character: character.__dict__, indent=2)
+
+    def delete_character_item(self, character_index, item_index):
+        character = self.load_character_by_index(character_index)
+        character.get_items().pop(item_index)
+        self.update_character(character_index, character)
+
 
     # def edit_character(self, character_name):
     #     print(f"Attempting to edit character: {character_name}")

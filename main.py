@@ -25,6 +25,9 @@ if __name__ == "__main__":
             max_health = self.builder.get_max_health()
             character.max_health = max_health
 
+            stats = self.builder.get_stats()
+            character.stats = stats
+
             return character
 
     character_manager = CharacterManager()
@@ -110,6 +113,20 @@ if __name__ == "__main__":
         if delete == True:
             character_manager.delete_character(character_index)
 
+
+    def start_items_edit(character_index):
+        character = character_manager.load_character_by_index(character_index)
+
+        print("Selected character has following items: ")
+        for i, item in enumerate(character.items):
+            print(f"{i}. {item}")
+
+        action = input("Do you want to remove (0) or add (1) an item? ")
+        match action:
+            case "0":
+                item_index = input("Choose item to delete by typing its number")
+                character_manager.delete_character_item(character_index, int(item_index))
+
     def start_character_edit():
         character_index = input("\nChoose character to edit by typing their number ")
         character_index = int(character_index)
@@ -122,6 +139,8 @@ if __name__ == "__main__":
                 start_character_deletion(character_index)
             case "1":
                 start_character_name_edit(character_index)
+            case "4":
+                start_items_edit(character_index)
             case _:
                 print("Unknown command. Type 'h' to see the list of available commands.")
 
@@ -131,7 +150,7 @@ if __name__ == "__main__":
         character_manager.change_character_name(int(character_index), new_name)
 
     def start_character_class_edit(character_index):
-        # TODO
+        pass # TODO
 
     print_available_commands()
 
